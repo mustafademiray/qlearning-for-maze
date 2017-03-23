@@ -4,3 +4,4 @@ This code gets the adjacency list from input.txt, creates a R matrix for open ro
           with that values, finds a path from Q matrix,
           draws a maze and its path.
           and creates a outR, outQ and outPath txt's to the desktop.
+          

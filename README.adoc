@@ -5,3 +5,6 @@ This code gets the adjacency list from input.txt, creates a R matrix for open ro
           draws a maze and its path.
           and creates a outR, outQ and outPath txt's to the desktop.
           
+
+image::https://github.com/mustafademiray/qlearning-for-maze/blob/master/rapormaterial2.jpg[]
+image::https://github.com/mustafademiray/qlearning-for-maze/blob/master/rapormaterial3.jpg[]

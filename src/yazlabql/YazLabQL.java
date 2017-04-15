@@ -50,7 +50,7 @@ public class YazLabQL{
         frame.add(itrSayyazi);
         frame.add(itrdSay);
         frame.add(butonTamam);
-        frame.setSize(500,200);
+        frame.setSize(500,150);
         frame.setVisible(true);
         frame.setLocation(100,300);
         
@@ -62,7 +62,7 @@ public class YazLabQL{
         		ArrayList<ArrayList<Integer>> durum = new ArrayList<>();
         
         		try{
-        			BufferedReader dosya = new BufferedReader(new FileReader("C:\\Users\\**username**\\Desktop\\input.txt"));
+        			BufferedReader dosya = new BufferedReader(new FileReader("C:\\Users\\username\\Desktop\\girdi.txt"));
 
         			while ((satir = dosya.readLine()) != null){
         				String[] elemanlar = satir.split(",");
@@ -75,12 +75,12 @@ public class YazLabQL{
 
         			dosya.close();
             	
-        			for (int i = 0; i < durum.size(); i++){
-        				for (int j = 0; j < durum.get(i).size(); j++){
-        					System.out.print(durum.get(i).get(j) + " ");
-        				}
-        				System.out.println();
-        			}
+//        			for (int i = 0; i < durum.size(); i++){
+//        				for (int j = 0; j < durum.get(i).size(); j++){
+//        					System.out.print(durum.get(i).get(j) + " ");
+//        				}
+//        				System.out.println();
+//        			}
             
         		} catch (IOException ex){
         			ex.printStackTrace();
@@ -132,8 +132,7 @@ public class YazLabQL{
         			double[][] Q = new double [durum.size()][durum.size()];
         			
         			for(int i=0; i < durum.size(); i++){
-        				for(int j=0; j < durum.size(); j++)
-        				{
+        				for(int j=0; j < durum.size(); j++){
         					Q[i][j] = 0;
         				} 
         			} 
@@ -225,25 +224,25 @@ public class YazLabQL{
             
         			}
     	
-        			System.out.println("\nR Matrisi: ");
-    	
-        			for(int i=0; i < durum.size(); i++){
-        				for(int j=0; j < durum.size(); j++){
-        					System.out.print(df.format(R[i][j]) + "\t");
-        				} 
-        				System.out.println();
-        			} 
-    	
-        			System.out.println("\nQ Matrisi: ");
-    	
-        			for(int i=0; i < durum.size(); i++){
-        				for(int j=0; j < durum.size(); j++){
-        					System.out.print(df.format(Q[i][j]) + "\t");
-        				} 
-        				System.out.println();
-        			} 
-    	
-        			System.out.println("\nYol:");
+//        			System.out.println("\nR Matrisi: ");
+//    	
+//        			for(int i=0; i < durum.size(); i++){
+//        				for(int j=0; j < durum.size(); j++){
+//        					System.out.print(df.format(R[i][j]) + "\t");
+//        				} 
+//        				System.out.println();
+//        			} 
+//    	
+//        			System.out.println("\nQ Matrisi: ");
+//    	
+//        			for(int i=0; i < durum.size(); i++){
+//        				for(int j=0; j < durum.size(); j++){
+//        					System.out.print(df.format(Q[i][j]) + "\t");
+//        				} 
+//        				System.out.println();
+//        			} 
+//    	
+//        			System.out.println("\nYol:");
     		
         			int[] from = new int[durum.size()];
         			int[] to = new int[durum.size()];
@@ -272,16 +271,16 @@ public class YazLabQL{
         					break;
         			}
         
-        			int i=0;
+//        			int i=0;
         	        
-        	        while(to[i]!=sonDurum){
-        	        	System.out.print(from[i] + " - ");
-        	        	i++;
-        	        }
-        	        System.out.print(from[i]+ " - " + to[i]);
+//        	        while(to[i]!=sonDurum){
+//        	        	System.out.print(from[i] + " - ");
+//        	        	i++;
+//        	        }
+//        	        System.out.print(from[i]+ " - " + to[i]);
         
         	        try{
-        	        	File yazici1 = new File("C:\\Users\\**username**\\Desktop\\outR.txt");
+        	        	File yazici1 = new File("C:\\Users\\username\\Desktop\\outR.txt");
         	        	PrintWriter yaz1 = new PrintWriter(yazici1);
             
         	        	for(int k=0; k < durum.size(); k++){
@@ -293,7 +292,7 @@ public class YazLabQL{
             
         	        	yaz1.close();
         	        	
-        	        	File yazici2 = new File("C:\\Users\\**username**\\Desktop\\outQ.txt");
+        	        	File yazici2 = new File("C:\\Users\\username\\Desktop\\outQ.txt");
         	        	PrintWriter yaz2 = new PrintWriter(yazici2);
             
         	        	for(int k=0; k < durum.size(); k++){
@@ -306,7 +305,7 @@ public class YazLabQL{
             
         	        	yaz2.close();
         
-        	        	File yazici3 = new File("C:\\Users\\**username**\\Desktop\\outPath.txt");
+        	        	File yazici3 = new File("C:\\Users\\username\\Desktop\\outPath.txt");
         	        	PrintWriter yaz3 = new PrintWriter(yazici3);
             
         	        	int k=0;
@@ -326,13 +325,13 @@ public class YazLabQL{
         	        ArrayList<Integer> path = new ArrayList<>();
         	        
         	        try{
-        	        	BufferedReader dosya2 = new BufferedReader(new FileReader("C:\\Users\\**username**\\Desktop\\outPath.txt"));
+        	        	BufferedReader dosya2 = new BufferedReader(new FileReader("C:\\Users\\username\\Desktop\\outPath.txt"));
         	        	String ayirici;
                 
         	        	while ((ayirici = dosya2.readLine()) != null){
-        	        		String[] dnm = ayirici.split("-");
-        	        		for (int x = 0; x < dnm.length; x++){
-        	        			path.add(Integer.parseInt(dnm[x]));
+        	        		String[] yolElemanlari = ayirici.split("-");
+        	        		for (int x = 0; x < yolElemanlari.length; x++){
+        	        			path.add(Integer.parseInt(yolElemanlari[x]));
         	        		}
         	        	}
             
@@ -346,7 +345,7 @@ public class YazLabQL{
         	        frame2.setTitle("Labirent Yolu");
         	        frame2.setBackground(WHITE);
         	        frame2.setVisible(true);
-        	        frame2.setSize(400,400);
+        	        frame2.setSize(410,450);
         	        frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         	        frame2.setLocation(100 , 300);
         
@@ -403,6 +402,12 @@ public class YazLabQL{
         	        			
         	        				if (i >= boyut-n)
         	        					alt.add(i,1);
+        	        				
+        	        				if (i%n==0 && ((i>=n)&&(i<(boyut-n))))
+        	        					sol.add(i,1);
+        	        				
+        	        				if (((i+1)%n==0) && ((i>=n)&&(i<(boyut-n))))
+        	        					sag.add(i,1);
         	        			}
 
         	        			if (i == sonDurum){
@@ -411,6 +416,12 @@ public class YazLabQL{
 
         	        				if (i >= boyut-n)
         	        					alt.add(i,1);
+        	        				
+        	        				if (i%n==0 && ((i>=n)&&(i<(boyut-n))))
+        	        					sol.add(i,1);
+        	        				
+        	        				if (((i+1)%n==0) && ((i>=n)&&(i<(boyut-n))))
+        	        					sag.add(i,1);
         	        			}
 
         	        			pass.clear();
@@ -418,7 +429,7 @@ public class YazLabQL{
           
         	        		total=0;
 
-        	        		int xYol=x1+20, yYol=y1+20, x2Yol=x2+20, y2Yol=y2+20;
+        	        		int xYol=x1+25, yYol=y1+25, x2Yol=x2+25, y2Yol=y2+25;
 
         	        		for(int i=0; i < n; i++){
         	        			for(int j=i; j < n+i; j++){
